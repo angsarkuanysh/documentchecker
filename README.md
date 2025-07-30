@@ -1,7 +1,8 @@
 # DC.GOST - Ассистент для проверки документов по ГОСТ
 Веб-приложение для автоматической проверки форматирования документов Word (.docx) на соответствие требованиям ГОСТ. Сервис позволяет не только находить ошибки, но и применять исправления, а также вести историю проверок для зарегистрированных пользователей.
 
-(Замените link_to_your_screenshot_1.png на реальную ссылку на скриншот)
+<img width="1850" height="920" alt="image" src="https://github.com/user-attachments/assets/1cd393c5-df84-48d3-92d7-076291bc5a32" />
+
 
 ## Основные возможности
 **Проверка по настраиваемым параметрам**: Пользователь может задавать требуемый размер шрифта, отступ первой строки и межстрочный интервал с помощью удобных ползунков.
@@ -49,47 +50,50 @@ git clone https://github.com/ваш-логин/ваш-репозиторий.git
 cd ваш-репозиторий
 ```
 
-Настройте секретный ключ:
+2. **Настройте секретный ключ:**
 Откройте файл src/main/resources/application.properties и установите ваш собственный секретный ключ для JWT. Сгенерируйте любую длинную строку (64+ символов) и закодируйте её в Base64.
 
-Properties
-
+```
 jwt.secret=ВАШ_СЕКРЕТНЫЙ_КЛЮЧ_В_BASE64
-Соберите проект с помощью Maven:
+```
 
-Bash
+3. **Соберите проект с помощью Maven:**
 
+```
 mvn clean install
-Запустите приложение:
+```
 
-Bash
+4. **Запустите приложение:**
 
+```
 mvn spring-boot:run
-Откройте приложение в браузере:
+```
 
-Главная страница: http://localhost:8080
+5. **Откройте приложение в браузере:**
 
-Консоль базы данных H2: http://localhost:8080/h2-console (используйте данные из application.properties для входа).
+ * Главная страница: http://localhost:8080
+
+ * Консоль базы данных H2: http://localhost:8080/h2-console (используйте данные из application.properties для входа).
 
 ## Структура проекта
-src/main/java/com/documentchecker/documcheck/
+* src/main/java/com/documentchecker/documcheck/
 
-config: Конфигурация Spring Security и JWT-фильтра.
+ * **config**: Конфигурация Spring Security и JWT-фильтра.
 
-controller: Контроллеры для обработки HTTP-запросов (API и веб-страницы).
+ * **controller**: Контроллеры для обработки HTTP-запросов (API и веб-страницы).
 
-dto: Объекты для передачи данных (Data Transfer Objects).
+ * **dto**: Объекты для передачи данных (Data Transfer Objects).
 
-model: JPA-сущности (User, History).
+ * **model**: JPA-сущности (User, History).
 
-repository: Spring Data JPA репозитории для доступа к базе данных.
+ * **repository**: Spring Data JPA репозитории для доступа к базе данных.
 
-service: Бизнес-логика приложения (проверка документов, аутентификация).
+ * **service**: Бизнес-логика приложения (проверка документов, аутентификация).
 
-src/main/resources/
+* src/main/resources/
 
-static: CSS, JS, изображения.
+ * **static**: CSS, JS, изображения.
 
-templates: HTML-шаблоны Thymeleaf.
+ * **templates**: HTML-шаблоны Thymeleaf.
 
 application.properties: Файл конфигурации приложения.
