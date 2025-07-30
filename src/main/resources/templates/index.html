@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DC: ГОСТ Ассистент - Безупречные документы по стандарту</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="icon" type="image/png" href="../images/icon.png">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <div class="logo">DC<span>.GOST</span></div>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="/">Главная</a></li>
+                    <li><a href="/upload">Проверка</a></li>
+                    <li id="loginButton">
+                        <a href="#" onclick="openLoginModal(event)">Войти</a>
+                    </li>
+                    
+                    <li id="userButton" style="display: none;">
+                        <a href="#" onclick="logout(event)" id="logout-btn">
+                            Выйти
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h2>Ваш ключ к документам, оформленным по ГОСТ</h2>
+                <p>Наш интеллектуальный сервис поможет автоматически проверить курсовые, дипломные и научные работы на соответствие требованиям ГОСТ. Экономьте время и будьте уверены в результате.</p>
+                <a href="#upload" class="cta-button">Начать проверку</a>
+            </div>
+        </section>
+
+        <section class="features" id="features">
+            <div class="container">
+                <h2 class="section-title">Почему нам доверяют</h2>
+                <div class="feature-cards">
+                    <div class="feature-card">
+                        <h3>Соответствие ГОСТ</h3>
+                        <p>Глубокий анализ структуры, форматирования, сносок, списка литературы и других ключевых элементов на соответствие актуальным стандартам.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Мгновенный анализ</h3>
+                        <p>Загрузите документ и получите полный отчет с подсвеченными ошибками и рекомендациями за считанные минуты.</p>
+                    </div>
+                    <div class="feature-card">
+                        <h3>Простота и удобство</h3>
+                        <p>Интуитивно понятный интерфейс, не требующий долгого изучения. Просто загрузите файл и получите готовый результат.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="upload-section" id="upload">
+            <div class="container">
+                <h2 class="section-title">Загрузите документ для проверки</h2>
+                <p>Мы поддерживаем форматы .docx, .pdf и .txt</p>
+                <a href="upload" class="cta-button">Перейти к загрузке</a> </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column about">
+                    <h3 class="logo">DC<span>.GOST</span></h3>
+                    <p>
+                        Интеллектуальный помощник для проверки документов на соответствие стандартам ГОСТ.
+                    </p>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Навигация</h4>
+                    <ul>
+                        <li><a href="/">Главная</a></li>
+                        <li><a href="#upload">Проверка</a></li>
+                        <li><a href="#">Ресурсы</a></li>
+                        <li><a href="#">Контакты</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-column">
+                    <h4>Свяжитесь с нами</h4>
+                    <ul>
+                        <li><a href="mailto:info@dcgost.example">info@dcgost.example</a></li>
+                        <li><a href="#">Telegram</a></li>
+                        <li><a href="#">VKontakte</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2025 DC.GOST. Все права защищены.</p>
+            </div>
+        </div>
+    </footer>
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" onclick="closeLoginModal()">&times;</span>
+                <h2>Вход в аккаунт</h2>
+                <p class="error-message" id="loginError"></p>
+                <div class="form-group">
+                    <label for="login-username">Имя пользователя</label>
+                    <input type="text" id="login-username" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Пароль</label>
+                    <input type="password" id="login-password" required>
+                </div>
+                <button class="modal-button" onclick="handleLogin()">Войти</button>
+                <p class="modal-switch">Нет аккаунта? <a href="#" onclick="switchToRegisterModal(event)">Регистрация</a></p>
+        </div>
+    </div>
+
+    <div id="registerModal" class="modal">
+            <div class="modal-content">
+                <span class="close-button" onclick="closeRegisterModal()">&times;</span>
+                <h2>Создание аккаунта</h2>
+                <p class="error-message" id="registerError"></p>
+                <div class="form-group">
+                    <label for="register-username">Придумайте имя</label>
+                    <input type="text" id="register-username" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-password">Придумайте пароль</label>
+                    <input type="password" id="register-password" required>
+                </div>
+                <button class="modal-button" onclick="handleRegister()">Зарегистрироваться</button>
+                <p class="modal-switch">Уже есть аккаунт? <a href="#" onclick="switchToLoginModal(event)">Войти</a></p>
+            </div>
+        </div>
+    <script>
+        let loginModal;
+        let registerModal;
+
+        function openLoginModal(event) {
+            if (event) event.preventDefault();
+            document.getElementById('loginError').textContent = '';
+            if (registerModal) registerModal.style.display = 'none';
+            if (loginModal) loginModal.style.display = 'block';
+        }
+
+        function closeLoginModal() {
+            if (loginModal) loginModal.style.display = 'none';
+        }
+
+        function openRegisterModal(event) {
+            if (event) event.preventDefault();
+            document.getElementById('registerError').textContent = '';
+            if (loginModal) loginModal.style.display = 'none';
+            if (registerModal) registerModal.style.display = 'block';
+        }
+
+        function closeRegisterModal() {
+            if (registerModal) registerModal.style.display = 'none';
+        }
+
+        function switchToRegisterModal(event) {
+            openRegisterModal(event);
+        }
+
+        function switchToLoginModal(event) {
+            openLoginModal(event);
+        }
+
+        async function handleLogin() {
+            const username = document.getElementById('login-username').value;
+            const password = document.getElementById('login-password').value;
+            const errorP = document.getElementById('loginError');
+            
+            try {
+                const response = await fetch('/api/auth/signin', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, password })
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    localStorage.setItem('jwt_token', data.token);
+                    window.location.reload();
+                } else {
+                    errorP.textContent = 'Неверное имя пользователя или пароль.';
+                }
+            } catch (error) {
+                errorP.textContent = 'Ошибка сети. Попробуйте снова.';
+            }
+        }
+
+        function logout(event){
+            if (event) event.preventDefault();
+            if (confirm('Вы точно хотите выйти?')) {
+                localStorage.removeItem("jwt_token");
+                window.location.href = '/';
+            }
+        }
+
+        async function handleRegister() {
+            const username = document.getElementById('register-username').value;
+            const password = document.getElementById('register-password').value;
+            const errorP = document.getElementById('registerError');
+            
+            try {
+                const response = await fetch('/api/auth/signup', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username, password })
+                });
+
+                if (response.ok) {
+                    const data = await response.json();
+                    localStorage.setItem('jwt_token', data.token);
+                    window.location.reload();
+                } else {
+                    const errorData = await response.json();
+                    errorP.textContent = errorData.message || 'Пользователь с таким именем уже существует.';
+                }
+            } catch (error) {
+                errorP.textContent = 'Ошибка сети. Попробуйте снова.';
+            }
+        }
+
+        
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            loginModal = document.getElementById('loginModal');
+            registerModal = document.getElementById('registerModal');
+            const loginButton = document.getElementById('loginButton');
+            const userButton = document.getElementById('userButton');
+            const logoutBtn = document.getElementById('logout-btn');
+
+            
+            if (localStorage.getItem("jwt_token")) {
+                if(loginButton) loginButton.style.display = 'none';
+                if(userButton) userButton.style.display = 'block';
+            } else {
+                if(loginButton) loginButton.style.display = 'block';
+                if(userButton) userButton.style.display = 'none';
+            }
+
+            
+            
+            if (logoutBtn) {
+                logoutBtn.addEventListener('click', logout);
+            }
+
+            
+            window.onclick = function(event) {
+                if (event.target == loginModal) {
+                    closeLoginModal();
+                }
+                if (event.target == registerModal) {
+                    closeRegisterModal();
+                }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,720 @@
+/* =================================================================
+   Общие стили и переменные
+   ================================================================= */
+:root {
+    --primary-color: #0057FF; /* Профессиональный синий */
+    --primary-hover: #0048d6;
+    --dark-color: #0A1931;    /* Глубокий тёмно-синий для текста и хедера */
+    --secondary-text: #6c757d;/* Серый для второстепенного текста */
+    --background-light: #F8F9FA;/* Очень светлый фон */
+    --border-color: #dee2e6;  /* Цвет для рамок и разделителей */
+    --success-color: #198754; /* Зеленый для подсказок */
+    --font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.settings-container {
+    width: 100%;
+    max-width: 500px; /* Такая же ширина, как у формы */
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.slider-group {
+    width: 100%;
+}
+
+.slider-group label {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 600;
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.slider-group input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 8px;
+    background: #e9ecef;
+    border-radius: 5px;
+    outline: none;
+    opacity: 0.7;
+    transition: opacity .2s;
+}
+
+.slider-group input[type="range"]:hover {
+    opacity: 1;
+}
+
+/* Стилизация "бегунка" для Chrome/Safari */
+.slider-group input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.slider-group input[type="range"]::-webkit-slider-thumb:hover {
+     background: var(--primary-hover);
+}
+
+
+.form-buttons-container {
+    display: flex;
+    gap: 15px;
+    width: 100%;
+    max-width: 500px;
+}
+
+.form-buttons-container .cta-button,
+.form-buttons-container .secondary-button {
+    flex-grow: 1; /* Кнопки займут всю доступную ширину */
+    padding: 15px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.secondary-button {
+    background-color: #e9ecef;
+    color: var(--dark-color);
+    border: 1px solid var(--border-color);
+}
+
+.secondary-button:hover {
+    background-color: #dee2e6;
+}
+
+
+
+
+/* Стилизация "бегунка" для Firefox */
+.slider-group input[type="range"]::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    cursor: pointer;
+    border: none; /* Важно для Firefox */
+    transition: background-color 0.2s;
+}
+
+.slider-group input[type="range"]::-moz-range-thumb:hover {
+     background: var(--primary-hover);
+}
+
+/* Найдите существующий блок body */
+body {
+    font-family: var(--font-family);
+    background-color: var(--background-light);
+    color: var(--dark-color);
+    line-height: 1.6;
+
+    /* ДОБАВЬТЕ ЭТИ ТРИ СТРОКИ */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* ДОБАВЬТЕ ЭТОТ НОВЫЙ БЛОК (можно после стилей для body) */
+main {
+    flex: 1 0 auto; /* Эта строка заставит main растянуться */
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: var(--primary-hover);
+}
+
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* =================================================================
+   Шапка сайта
+   ================================================================= */
+.site-header {
+    background-color: #fff;
+    padding: 20px 0;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.site-header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--dark-color);
+}
+
+.logo span {
+    color: var(--primary-color);
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.main-nav a {
+    color: var(--dark-color);
+    font-size: 16px;
+    font-weight: 500;
+    padding-bottom: 5px;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.main-nav a:hover, .main-nav a.active {
+    color: var(--primary-color);
+    border-bottom-color: var(--primary-color);
+}
+
+
+/* =================================================================
+   Главный экран (Hero)
+   ================================================================= */
+.hero {
+    text-align: center;
+    padding: 100px 0;
+    background: #ffffff;
+}
+
+.hero h2 {
+    font-size: 48px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 18px;
+    color: var(--secondary-text);
+    max-width: 650px;
+    margin: 0 auto 30px;
+}
+
+.cta-button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px 35px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 8px;
+    display: inline-block;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 87, 255, 0.2);
+}
+
+.cta-button:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 87, 255, 0.3);
+    color: white;
+}
+
+/* =================================================================
+   Секция "Преимущества"
+   ================================================================= */
+.features {
+    padding: 80px 0;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 36px;
+    margin-bottom: 50px;
+    font-weight: 700;
+}
+
+.feature-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.feature-card {
+    background-color: #fff;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 30px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+}
+
+.feature-card h3 {
+    font-size: 22px;
+    margin-bottom: 15px;
+}
+
+.feature-card p {
+    color: var(--secondary-text);
+    font-size: 15px;
+}
+
+
+/* =================================================================
+   Секция "Загрузка" и форма
+   ================================================================= */
+.upload-section {
+    padding: 80px 0;
+    background: #ffffff;
+    border-top: 1px solid var(--border-color);
+}
+
+.upload-section .container {
+    text-align: center;
+}
+
+.upload-section p {
+    font-size: 18px;
+    color: var(--secondary-text);
+    margin-top: -30px;
+    margin-bottom: 40px;
+}
+
+.upload-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.upload-form input[type="file"] {
+    border: 2px dashed var(--border-color);
+    border-radius: 12px;
+    padding: 30px;
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    color: var(--secondary-text);
+    transition: all 0.3s ease;
+}
+
+.file-upload-container {
+  position: relative; /* Необходимо для позиционирования */
+  display: inline-block;
+  width: 100%;
+}
+
+/* Скрываем стандартный input */
+.file-upload-container input[type="file"] {
+  display: none;
+}
+
+/* Стилизуем наш лейбл, чтобы он выглядел как поле */
+.file-upload-container label {
+  display: block; /* Растягиваем на всю ширину контейнера */
+  padding: 20px;
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  text-align: center;
+  color: #555;
+  cursor: pointer; /* Показываем, что на элемент можно нажать */
+  transition: all 0.3s ease;
+}
+/* =================================================================
+   Стили для имитации страниц и колонтитулов
+   ================================================================= */
+
+/* Стиль для разделителя страниц */
+.page-break {
+    border-top: 2px dashed #cccccc;
+    margin: 40px 0;
+    padding: 0;
+    height: 0;
+}
+
+/* Стили для верхнего колонтитула */
+.header {
+    border-bottom: 1px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    color: #666;
+    font-size: 10pt;
+    text-align: right;
+}
+
+/* Стили для нижнего колонтитула */
+.footer {
+    border-top: 1px solid #eee;
+    padding-top: 10px;
+    margin-top: 20px;
+    color: #666;
+    font-size: 10pt;
+    text-align: center;
+}
+
+/* Чтобы убрать лишние отступы у абзацев внутри колонтитулов */
+.header p, .footer p {
+    margin: 0;
+    padding: 0;
+}
+.file-upload-container label:hover {
+  border-color: #0057FF; /* Используем ваш основной цвет для ховера */
+  color: #0057FF;
+}
+
+.upload-form input[type="file"]::-webkit-file-upload-button {
+    visibility: hidden;
+}
+.upload-form input[type="file"]::before {
+    content: 'Выберите файл или перетащите его сюда';
+    display: inline-block;
+    cursor: pointer;
+}
+
+.upload-form input[type="file"]:hover {
+    border-color: var(--primary-color);
+    background: #fdfdff;
+}
+
+.upload-form button {
+    width: 100%;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 15px 30px;
+    font-size: 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 87, 255, 0.2);
+}
+
+.upload-form button:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 87, 255, 0.3);
+}
+
+/* =================================================================
+   Просмотр документа и результаты
+   ================================================================= */
+.hint {
+    text-align: center;
+    margin: 40px auto -20px;
+    padding: 10px 20px;
+    background-color: #e7f3ff;
+    border: 1px solid #b3d7ff;
+    color: #004085;
+    max-width: 800px;
+    border-radius: 8px;
+}
+
+.document-viewer {
+    display: flex;
+    justify-content: center;
+    padding: 60px 0;
+}
+
+.a4-page {
+    width: 210mm;
+    min-height: 297mm;
+    background-color: white;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+    padding: 2cm;
+    font-size: 12pt; /* Стандартный размер для документов */
+    line-height: 1.5;
+    font-family: 'Times New Roman', Times, serif; /* Типичный шрифт для ГОСТ */
+}
+
+/* Стили для подсветки ошибок. Вы можете их настроить */
+.error {
+    background-color: #FFF8AD;
+    cursor: pointer;
+    position: relative;
+}
+
+.error-comment {
+    visibility: hidden;
+    width: 200px;
+    background-color: var(--dark-color);
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -100px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-family: var(--font-family); /* Используем основной шрифт для подсказок */
+    font-size: 10pt;
+}
+
+.error:hover .error-comment {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* =================================================================
+   Подвал сайта
+   ================================================================= */
+/* =================================================================
+   Обновленные стили для подвала сайта
+   ================================================================= */
+.site-footer {
+    background-color: var(--dark-color);
+    color: rgba(255, 255, 255, 0.7); /* Сделаем основной текст чуть бледнее */
+    text-align: left; /* Меняем выравнивание для колонок */
+    padding: 60px 0 20px 0; /* Увеличиваем отступы */
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px; /* Пространство между колонками */
+    flex-wrap: wrap; /* Для адаптивности */
+    margin-bottom: 40px;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 220px; /* Минимальная ширина колонки для адаптивности */
+}
+
+.footer-column.about .logo {
+    margin-bottom: 15px;
+    display: inline-block;
+    color: #fff;
+}
+
+.footer-column h4 {
+    font-size: 18px;
+    color: #fff;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column ul a {
+    color: rgba(255, 255, 255, 0.7);
+    transition: all 0.3s ease;
+}
+
+.footer-column ul a:hover {
+    color: #fff;
+    padding-left: 5px;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 14px;
+}
+
+
+/* =================================================================
+   Адаптивность
+   ================================================================= */
+@media (max-width: 768px) {
+    .site-header .container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .hero h2 {
+        font-size: 36px;
+    }
+
+    .a4-page {
+        width: 100%;
+        min-height: auto;
+        height: auto;
+        padding: 1.5cm;
+        box-shadow: none;
+        border: 1px solid var(--border-color);
+    }
+
+    .document-viewer {
+        padding: 40px 10px;
+    }
+}
+/* =================================================================
+   Стили для модального окна
+   ================================================================= */
+
+/* Фон-затемнение */
+.modal {
+    display: none; /* Скрыто по умолчанию */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Контент модального окна */
+.modal-content {
+    background-color: #ffffff;
+    margin: 10% auto;
+    padding: 30px 40px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 450px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    position: relative;
+    animation: slideIn 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Кнопка "Закрыть" (крестик) */
+.close-button {
+    color: #aaa;
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Стили для формы внутри модального окна */
+.modal-content h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 24px;
+    color: var(--dark-color);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    color: #555;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box; /* Важно! */
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(0, 87, 255, 0.15);
+}
+
+.modal-button {
+    width: 100%;
+    padding: 14px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+}
+
+.modal-button:hover {
+    background-color: var(--primary-hover);
+    transform: translateY(-2px);
+}
+
+.modal-switch {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.modal-switch a {
+    color: var(--primary-color);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.modal-switch a:hover {
+    text-decoration: underline;
+}
+
+.error-message {
+    color: #d93025;
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 14px;
+    min-height: 1.2em;
+}
